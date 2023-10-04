@@ -1,38 +1,189 @@
-.App {
+.show-flow-panel #flow-panel {
+  opacity: 1;
+}
+
+.show-flow-panel #action-panel {
+  display: none;
+}
+
+.show-action-panel #flow-panel {
+  opacity: 0.1;
+}
+
+.show-action-panel #action-panel {
+  opacity: 1;
+  display: initial;
+}
+
+#action-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
+  padding: 30px;
+  border: 1px solid #888;
+  border-radius: 20px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#action-type > .button-group {
+  justify-content: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#action-type > .button-group > button {
+  flex-grow: initial;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#action-top, #action-bottom {
+  text-align: left;
+  width: 100%;
+}
+#action-bottom {
   display: flex;
-  flex-direction: column;
+}
+#action-bottom div {
+  flex-grow: 1;
+}
+#action-bottom div+div {
+  margin-left: 20px;
+}
+.button-group {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.button-group button {
+  border: 1px solid #aaa;
+  outline-width: 0;
+}
+
+/* step node style */
+.node-content {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border: 1px solid #333;
+  height: 50px;
+  width: 360px;
+  box-sizing: border-box;
+  position: relative;
+}
+.node-type {
+  width: 40px;
+  margin: 0 10px;
+  border: 1px solid #ddd;
+  position: absolute;
+  left: 0;
+}
+.node-label {
+  margin: 0 10px;
+  width: 150px;
+  text-align: center;
+}
+.node-avatar {
+  width: 40px;
+  margin: 0 10px;
+  position: absolute;
+  right: 30px;
+}
+.actions {
+  display: none;
+}
+.btn-actions {
+  padding: 5px;
+  margin: 0 10px;
+  position: absolute;
+  right: 0; 
+}
+.btn-actions:hover, .btn-actions:focus {
+  border: 1px solid #ddd;
+  border-radius: 0;
+}
+.node-content.action .actions {
+  display: block;
+  list-style: none;
+  position: absolute;
+  bottom: -30px;
+  right: 5px;
+  margin: 0!important;
+  padding: 0;
+}
+.node-content.action .actions li button {
+  display: block;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  font-size: 12px;
+}
+
+
+
+/* timer node style */
+.node-content.timer {
+  border: 1px solid rgb(7 140 237);
+  color: rgb(7 140 237);
+}
+.timer-btn-delete {
+  padding: 0 3px;
+  margin: 0 10px;
+  position: absolute;
+  right: 0;
+  color: rgb(7 140 237);
+  border: 1px solid rgb(7 140 237);
+  border-radius: 0;
+}
+.timer-btn-delete:hover, .timer-btn-delete:focus {
+  border: 1px solid rgb(7 140 237);
+  border-radius: 0;
+}
+
+/* last node style */
+.last-node {
+  border: 1px solid #999;
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 12px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.last-node:hover {
+  background-color: #ddd;
+}
+
+/* button edge style */
+.edgebutton {
+  width: 25px;
+  height: 25px;
+  background: white;
+  border: 0!important;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0px;
+}
+
+.edgebutton:hover {
+  color: black;
+}
+
+
+.btn-add-step.active {
+  background-color: rgb(18, 53, 211);
+  border-color: rgb(18, 53, 211);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.btn-add-step.active:focus {
+  border-color: rgb(18, 53, 211);
+}
+.btn-add-step.active .button-group button:focus {
+  border: 1px solid rgb(18, 53, 211)!important;
+  outline-width: 0!important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:focus, button:focus-visible {
+  outline-width: 0!important;
 }
